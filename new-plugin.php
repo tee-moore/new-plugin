@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name:  
+Plugin Name:  new-plugin
 Plugin URI:   
 Description:  
 Version:      1.0
@@ -62,9 +62,30 @@ function new_plugin_admin_enqueue_scripts(){
 
 
 /**
+ * Registers a function to be run when the plugin is activated. 
+ */
+register_activation_hook( __FILE__, 'new_plugin_activate' );
+function new_plugin_activate() {
+    
+}
+
+
+/**
  * Include options page
  */
 require_once dirname( __FILE__ ) . '/admin/options.php';
+
+
+/**
+ * Include custom post type
+ */
+require_once dirname( __FILE__ ) . '/inc/custom-post-type.php';
+
+
+/**
+ * Include meta box
+ */
+require_once dirname( __FILE__ ) . '/inc/meta-box.php';
 
 
 /**

@@ -89,6 +89,12 @@ require_once dirname( __FILE__ ) . '/inc/meta-box.php';
 
 
 /**
+ * Data base
+ */
+require_once dirname( __FILE__ ) . '/inc/data-base.php';
+
+
+/**
  * Include widgets
  */
 require_once dirname( __FILE__ ) . '/widgets/widget.php';

@@ -12,16 +12,17 @@ License:      GPL2
 License URI:  https://www.gnu.org/licenses/gpl-2.0.html
 */
 
-/**
- * Define constants
- */
-define( "NEW_PLUGIN", plugin_dir_path( __FILE__ ) );
-
 
 /**
  * Exit if accessed directly
  */
 if ( ! defined( 'ABSPATH' ) ) exit;
+
+
+/**
+ * Define constants
+ */
+define( "NEW_PLUGIN", plugin_dir_path( __FILE__ ) );
 
 
 /**
@@ -44,8 +45,8 @@ function new_plugin_locale() {
  */
 add_action( 'wp_enqueue_scripts', 'new_plugin_enqueue_scripts' );
 function new_plugin_enqueue_scripts(){
-    wp_enqueue_script( 'new-plugin-script', plugins_url('/js/new-plugin-script-front.js', __FILE__), array('jquery'), null, true);
-    wp_enqueue_style( 'new-plugin-style', plugins_url('/css/new-plugin-style-front.css', __FILE__), array(), null, 'all' );
+    wp_enqueue_script( 'new-plugin-front-script', plugins_url('/js/new-plugin-script-front.js', __FILE__), array('jquery'), null, true);
+    wp_enqueue_style( 'new-plugin-front-style', plugins_url('/css/new-plugin-style-front.css', __FILE__), array(), null, 'all' );
     wp_localize_script('new-plugin-script', 'myajax', 
         array(
             'url' => admin_url('admin-ajax.php')
@@ -56,8 +57,8 @@ function new_plugin_enqueue_scripts(){
 add_action( 'admin_enqueue_scripts', 'new_plugin_admin_enqueue_scripts' );
 function new_plugin_admin_enqueue_scripts(){
     //wp_enqueue_media();
-    wp_enqueue_script( 'new-plugin-script', plugins_url('/js/new-plugin-script-admin.js', __FILE__), array('jquery'), null, true);
-    wp_enqueue_style( 'ordin-admin-style', plugins_url('/css/new-plugin-style-admin.css', __FILE__), array(), null, 'all' );
+    wp_enqueue_script( 'new-plugin-admin-script', plugins_url('/js/new-plugin-script-admin.js', __FILE__), array('jquery'), null, true);
+    wp_enqueue_style( 'new-plugin-admin-style', plugins_url('/css/new-plugin-style-admin.css', __FILE__), array(), null, 'all' );
 }
 
 
